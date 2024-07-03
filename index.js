@@ -68,3 +68,45 @@ document.addEventListener("mousemove",(event)=>{
     siljituvchiElement.dom.style.top = event.clientY - offsetMouse.y + "px";
     siljituvchiElement.dom.style.left = event.clientX - offsetMouse.x + "px";
 });
+
+// for mobile
+document.addEventListener("touchstart", (event) => {
+    const el = event.target;
+    if (el.classList.contains('notch')) {
+        event.preventDefault(); // Prevent default behavior of scrolling or zooming
+        el.style.cursor = 'grabbing';
+        startMouse.x = event.touches[0].clientX;
+        startMouse.y = event.touches[0].clientY;
+        siljituvchiElement.dom = el.parentNode;
+        siljituvchiElement.x = el.parentNode.offsetLeft;
+        siljituvchiElement.y = el.parentNode.offsetTop;
+        offsetMouse.x = startMouse.x - siljituvchiElement.x;
+        offsetMouse.y = startMouse.y - siljituvchiElement.y;
+    }
+});
+
+document.addEventListener("touchmove", (event) => {
+    if (siljituvchiElement.dom === undefined) return;
+    event.preventDefault(); // Prevent default behavior of scrolling or zooming
+    siljituvchiElement.dom.style.top = event.touches[0].clientY - offsetMouse.y + "px";
+    siljituvchiElement.dom.style.left = event.touches[0].clientX - offsetMouse.x + "px";
+});
+
+document.addEventListener("touchend", (event) => {
+    const el = event.target;
+
+    startMouse.x = null;
+    startMouse.y = null;
+
+    siljituvchiElement.dom = undefined;
+    siljituvchiElement.x = null;
+    siljituvchiElement.y = null;
+
+    offsetMouse.x = null;
+    offsetMouse.y = null;
+
+    if (el.classList.contains('notch')) {
+        el.style.cursor = 'grab';
+    }
+});
+
