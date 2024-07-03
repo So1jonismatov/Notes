@@ -1,0 +1,112 @@
+html {
+    --s: 147px; /* control the size*/
+    --c1: #040c1f;
+    --c2: #0c735f;
+    --c3: #c29500;
+    --c4: #9e1000;
+    --c5: #aca0b1;
+    
+    --_g: radial-gradient(#0000 70%,var(--c1) 71%);
+    background:
+      var(--_g),var(--_g) calc(var(--s)/2) calc(var(--s)/2),
+      conic-gradient(var(--c2) 25%,var(--c3) 0 50%,var(--c4) 0 75%,var(--c5) 0);
+    background-size: var(--s) var(--s);
+}body{
+    margin: 0;
+    font-family: Poppins;
+}
+main{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.form{
+    background-color: azure;
+    width: max-content;
+    padding: 5px ;
+    margin:10px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    position: fixed;
+    z-index: 2;
+}
+.form > *{
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: x-large;
+}
+input[type="color"] {
+	border: none;
+    margin: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+    margin: none;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;    
+    margin: none;
+    border-radius: 50%;
+}
+.plus:active{
+    background-color: #6391fe;
+    color: azure;
+}
+#area{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.note{
+    box-shadow:5px 5px 10px 1px rgb(0, 0, 0);
+    background-color: #302b40;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    border-radius: 5px;
+}
+.notch{
+    background-color: #ffc401;
+    height: 25px;
+    width: 100%; 
+    border-radius: 5px 5px 0 0;
+    cursor: grab;
+}
+.x{
+    position:absolute;
+    top: 0;
+    right: 0;
+    height: 25px;
+    width: 25px;
+    background-color: tomato;
+    border: none;
+    border-radius: 0 5px 0 0;
+    cursor: pointer;
+}
+.x:active{
+    background-color: red;
+    color: aliceblue;
+}
+.txt{ 
+    all: unset;
+    width:195px;
+    border: none;
+    padding: none;
+    margin: none;
+    height: calc(100% - 30px);
+    text-wrap:wrap;
+    color: #efdaf8;
+}
